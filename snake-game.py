@@ -114,6 +114,8 @@ class SnakeGame(App):
                 Apple((random.randint(20,self.width-20), random.randint(20,self.height-20)))
                 for x in self.getSpritesbyClass(SnakeTail):
                     x.maxage += 10
+                    
+                print(length(self.getSpritesbyClass(SnakeTail)))
                 
             # Create snake tail with appropriate age
             SnakeTail((head.x, head.y), head.length * 10)
