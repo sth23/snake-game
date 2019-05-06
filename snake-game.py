@@ -29,12 +29,40 @@ class Snake(Sprite):
     
     def __init__(self, position):
         super().__init__(Snake.rect, position)
+        self.speed = 10
+        self.vy = -self.speed
+        self.vx = 0
+        
+        SpaceGame.listenKeyEvent("keydown", "up arrow", self.moveUp)
+        SpaceGame.listenKeyEvent("keydown", "down arrow", self.moveDown)
+        SpaceGame.listenKeyEvent("keydown", "right arrow", self.moveRight)
+        SpaceGame.listenKeyEvent("keydown", "left arrow", self.moveLeft)
+        
+    def moveUp(self, event):
+        self.vy = -self.speed
+        
+    def moveRight(self, event):
+        self.vx = self.speed
+        
+    def moveDown(self, event):
+        self.vy = self.speed
+    
+    def moveLeft(self, event):
+        self.vx = -self.speed
+        
+    def step(self):
+        self.x += self.vx
+        self.y += self.vy
 
 class SnakeGame(App):
     
     def __init__(self):
         super().__init__()
         Snake((self.width/2, self.height/2))
+        
+    def step(self):
+        for snake in self.getSpritesbyClass(Snake):
+            snake.step()
         
 myapp = SnakeGame()
 myapp.run()
