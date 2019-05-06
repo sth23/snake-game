@@ -7,7 +7,7 @@ Assignment:
 Create an old-school snake game
 """
 
-from ggame import App, RectangleAsset, CircleAsset, Sprite, LineStyle, Color
+from ggame import App, RectangleAsset, Sprite, LineStyle, Color
 import math
 import random
 
@@ -107,15 +107,22 @@ class SnakeGame(App):
     def step(self):
         for head in self.getSpritesbyClass(SnakeHead):
             head.step()
+            
+            # Eat apple
             if head.collidingWithSprites(Apple):
                 head.eatApple()
                 self.getSpritesbyClass(Apple)[0].destroy()
                 Apple((random.randint(10,self.width-10), random.randint(10,self.height-10)))
+                
+            # Create snake tail with appropriate age
             SnakeTail((head.x, head.y), head.length * 10)
             
+            # Check for collisions with tail
             self.tailcollision = head.collidingWithSprites(SnakeTail)
             if self.tailcollision and self.tailcollision[0].age > 20:
                 head.destroy()
+            
+            #Check for collisions with walls
             if head.collidingWithSprites(Wall):
                 head.destroy()
 
