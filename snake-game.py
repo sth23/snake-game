@@ -11,15 +11,18 @@ from ggame import App, RectangleAsset, CircleAsset, ImageAsset, Sprite, LineStyl
 import math
 import random
 
-class Wall(Sprite):
-    # Colors
+class SnakeTail(Sprite):
+    # Create asset
     black = Color(0,1)
     noline = LineStyle(0,black)
-    # Rectangle Assets
-    #topwalls = RectangleAsset(self.width, 10, noline, black)
-    #sidewalls = RectangleAsset(10, self.height, noline, black)
+    rect = RectangleAsset(10, 10, noline, black)
     
-#class Apple(Sprite):
+    def __init__(self,position):
+        super().__init__(SnakeTail.rect, position)
+        self.age = 0
+        
+    def step(self):
+        self.age +=1
     
 class SnakeHead(Sprite):
     # Create asset
@@ -65,8 +68,13 @@ class SnakeGame(App):
         SnakeHead((self.width/2, self.height/2))
         
     def step(self):
-        for snake in self.getSpritesbyClass(SnakeHead):
-            snake.step()
+        for head in self.getSpritesbyClass(SnakeHead):
+            head.step()
+            
+        for tail in self.getSpritesbyClass(SnakeTail):
+            tail.step()
+            if tail.age > 20:
+                tail.destroy()
         
 myapp = SnakeGame()
 myapp.run()
