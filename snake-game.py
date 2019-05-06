@@ -18,7 +18,7 @@ class Apple(Sprite):
     rect = RectangleAsset(10, 10, noline, black)
     
     def __init__(self, position):
-        super.__init__(Apple.rect, position)
+        super().__init__(Apple.rect, position)
 
 class SnakeTail(Sprite):
     # Create asset
