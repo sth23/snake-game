@@ -74,7 +74,7 @@ class SnakeGame(App):
             
         for tail in self.getSpritesbyClass(SnakeTail):
             tail.step()
-            if tail.age > 20:
+            if tail.age > 50:
                 tail.destroy()
         
 myapp = SnakeGame()
