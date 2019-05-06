@@ -11,6 +11,15 @@ from ggame import App, RectangleAsset, CircleAsset, ImageAsset, Sprite, LineStyl
 import math
 import random
 
+class Apple(Sprite):
+    # Create asset
+    black = Color(0,1)
+    noline = LineStyle(0,black)
+    rect = RectangleAsset(10, 10, noline, black)
+    
+    def __init__(self.position):
+        super.__init__(Apple.rect, position)
+
 class SnakeTail(Sprite):
     # Create asset
     black = Color(0,1)
@@ -62,10 +71,10 @@ class SnakeHead(Sprite):
         self.y += self.vy
 
 class SnakeGame(App):
-    
     def __init__(self):
         super().__init__()
         SnakeHead((self.width/2, self.height/2))
+        Apple((random.randint(0,self.width), random.randint(0,self.height))
         
     def step(self):
         for head in self.getSpritesbyClass(SnakeHead):
