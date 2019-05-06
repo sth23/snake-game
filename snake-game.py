@@ -90,8 +90,9 @@ class SnakeGame(App):
                 self.getSpritesbyClass(Apple)[0].destroy()
                 Apple((random.randint(10,self.width-10), random.randint(10,self.height-10)))
             SnakeTail((head.x, head.y), head.length * 10)
+            if head.collidingWithSprites(SnakeTail):
+                head.destroy()
 
-            
         for tail in self.getSpritesbyClass(SnakeTail):
             tail.step()
             if tail.age > tail.maxage:
