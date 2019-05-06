@@ -29,7 +29,7 @@ class Snake(Sprite):
     
     def __init__(self, position):
         super().__init__(Snake.rect, position)
-        self.speed = 10
+        self.speed = 1
         self.vy = -self.speed
         self.vx = 0
         
@@ -40,15 +40,19 @@ class Snake(Sprite):
         
     def moveUp(self, event):
         self.vy = -self.speed
+        self.vx = 0
         
     def moveRight(self, event):
         self.vx = self.speed
+        self.vy = 0
         
     def moveDown(self, event):
         self.vy = self.speed
+        self.vx = 0
     
     def moveLeft(self, event):
         self.vx = -self.speed
+        self.vy = 0
         
     def step(self):
         self.x += self.vx
