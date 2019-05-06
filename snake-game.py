@@ -50,7 +50,7 @@ class SnakeHead(Sprite):
     rect = RectangleAsset(10, 10, noline, black)
     
     def __init__(self, position):
-        super().__init__(SnakeHead.asset, position)
+        super().__init__(SnakeHead.rect, position)
         self.speed = 1
         self.vy = -self.speed
         self.vx = 0
