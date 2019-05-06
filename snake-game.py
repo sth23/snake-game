@@ -74,7 +74,7 @@ class SnakeGame(App):
     def __init__(self):
         super().__init__()
         SnakeHead((self.width/2, self.height/2))
-        Apple((random.randint(0,self.width), random.randint(0,self.height))
+        Apple((random.randint(0,self.width), random.randint(0,self.height)))
         
     def step(self):
         for head in self.getSpritesbyClass(SnakeHead):
