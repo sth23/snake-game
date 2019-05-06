@@ -86,6 +86,7 @@ class SnakeGame(App):
             head.step()
             if head.collidingWithSprites(Apple):
                 head.eatApple()
+                self.getSpritesbyClass(Apple).destroy()
             SnakeTail((head.x, head.y), head.length * 10)
 
             
