@@ -26,9 +26,10 @@ class SnakeTail(Sprite):
     noline = LineStyle(0,black)
     rect = RectangleAsset(10, 10, noline, black)
     
-    def __init__(self,position):
+    def __init__(self, position, maxage):
         super().__init__(SnakeTail.rect, position)
         self.age = 0
+        self.maxage = maxage
         
     def step(self):
         self.age +=1
@@ -44,6 +45,7 @@ class SnakeHead(Sprite):
         self.speed = 1
         self.vy = -self.speed
         self.vx = 0
+        self.length = 1
         
         SnakeGame.listenKeyEvent("keydown", "up arrow", self.moveUp)
         SnakeGame.listenKeyEvent("keydown", "down arrow", self.moveDown)
@@ -66,6 +68,9 @@ class SnakeHead(Sprite):
         self.vx = -self.speed
         self.vy = 0
         
+    def eatApple(self):
+        self.length += 1
+        
     def step(self):
         self.x += self.vx
         self.y += self.vy
@@ -79,11 +84,11 @@ class SnakeGame(App):
     def step(self):
         for head in self.getSpritesbyClass(SnakeHead):
             head.step()
-            SnakeTail((head.x, head.y))
+            SnakeTail((head.x, head.y), head.length * 10)
             
         for tail in self.getSpritesbyClass(SnakeTail):
             tail.step()
-            if tail.age > 50:
+            if tail.age > tail.maxage:
                 tail.destroy()
         
 myapp = SnakeGame()
