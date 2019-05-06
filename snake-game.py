@@ -21,14 +21,14 @@ class Wall(Sprite):
     
 #class Apple(Sprite):
     
-class Snake(Sprite):
+class SnakeHead(Sprite):
     # Create asset
     black = Color(0,1)
     noline = LineStyle(0,black)
     rect = RectangleAsset(10, 10, noline, black)
     
     def __init__(self, position):
-        super().__init__(Snake.rect, position)
+        super().__init__(SnakeHead.rect, position)
         self.speed = 1
         self.vy = -self.speed
         self.vx = 0
@@ -62,10 +62,10 @@ class SnakeGame(App):
     
     def __init__(self):
         super().__init__()
-        Snake((self.width/2, self.height/2))
+        SnakeHead((self.width/2, self.height/2))
         
     def step(self):
-        for snake in self.getSpritesbyClass(Snake):
+        for snake in self.getSpritesbyClass(SnakeHead):
             snake.step()
         
 myapp = SnakeGame()
