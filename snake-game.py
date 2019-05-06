@@ -96,7 +96,6 @@ class SnakeGame(App):
         noline = LineStyle(0,black)
         topbottomrect = RectangleAsset(self.width, 10, noline, black)
         siderect = RectangleAsset(10, self.height, noline, black)
-        
         topwall = Wall((0,0), topbottomrect)
         leftwall = Wall((0,0), siderect)
         rightwall = Wall((self.width-10,0), siderect)
