@@ -84,7 +84,10 @@ class SnakeGame(App):
     def step(self):
         for head in self.getSpritesbyClass(SnakeHead):
             head.step()
+            if head.collidingWithSprites(Apple):
+                head.eatApple()
             SnakeTail((head.x, head.y), head.length * 10)
+
             
         for tail in self.getSpritesbyClass(SnakeTail):
             tail.step()
