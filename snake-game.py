@@ -115,7 +115,7 @@ class SnakeGame(App):
                 for x in self.getSpritesbyClass(SnakeTail):
                     x.maxage += 10
                     
-                print(length(self.getSpritesbyClass(SnakeTail)))
+                print(len(self.getSpritesbyClass(SnakeTail)))
                 
             # Create snake tail with appropriate age
             SnakeTail((head.x, head.y), head.length * 10)
