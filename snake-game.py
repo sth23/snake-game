@@ -70,7 +70,7 @@ class SnakeHead(Sprite):
         
     def eatApple(self):
         self.length += 1
-        self.speed += 1
+        self.speed += 0.2
         
     def step(self):
         self.x += self.vx
