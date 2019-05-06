@@ -93,7 +93,7 @@ class SnakeGame(App):
             SnakeTail((head.x, head.y), head.length * 10)
             
             self.tailcollision = head.collidingWithSprites(SnakeTail)
-            if self.tailcollision and self.tailcollision[0].age > 15:
+            if self.tailcollision and self.tailcollision[0].age > 20:
                 head.destroy()
 
         for tail in self.getSpritesbyClass(SnakeTail):
