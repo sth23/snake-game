@@ -81,6 +81,7 @@ class SnakeGame(App):
         super().__init__()
         SnakeHead((self.width/2, self.height/2))
         Apple((random.randint(10,self.width-10), random.randint(10,self.height-10)))
+        self.tailcollision = []
         
     def step(self):
         for head in self.getSpritesbyClass(SnakeHead):
@@ -90,7 +91,9 @@ class SnakeGame(App):
                 self.getSpritesbyClass(Apple)[0].destroy()
                 Apple((random.randint(10,self.width-10), random.randint(10,self.height-10)))
             SnakeTail((head.x, head.y), head.length * 10)
-            if head.collidingWithSprites(SnakeTail):
+            
+            self.tailcollision = head.collidingWithSprites(SnakeTail)
+            if self.tailcollision and self.tailcollision[0].age > 10:
                 head.destroy()
 
         for tail in self.getSpritesbyClass(SnakeTail):
