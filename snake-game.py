@@ -25,7 +25,7 @@ class Snake(Sprite):
     # Create asset
     black = Color(0,1)
     noline = LineStyle(0,black)
-    rect = RectangleAsset(10, 10, Snake.noline, Snake.black)
+    rect = RectangleAsset(10, 10, noline, black)
     
     def __init__(self, position):
         super().__init__(Snake.rect, position)
