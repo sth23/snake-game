@@ -70,6 +70,7 @@ class SnakeGame(App):
     def step(self):
         for head in self.getSpritesbyClass(SnakeHead):
             head.step()
+            SnakeTail((head.x, head.y))
             
         for tail in self.getSpritesbyClass(SnakeTail):
             tail.step()
