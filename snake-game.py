@@ -19,10 +19,22 @@ class Wall(Sprite):
     topwalls = RectangleAsset(self.width, 10, noline, black)
     sidewalls = RectangleAsset(10, self.height, noline, black)
     
-
-        
+#class Apple(Sprite):
+    
+class Snake(Sprite):
+    # Create asset
+    black = Color(0,1)
+    noline = LineStyle(0,black)
+    rect = RectangleAsset(10, 10, noline, black)
+    
+    def __init__(self, position):
+        super().__init__(rect, position)
 
 class SnakeGame(app):
     
     def __init__(self):
         super().__init__()
+        Snake((self.width/2, self.height/2))
+        
+myapp = SnakeGame()
+myapp.run()
