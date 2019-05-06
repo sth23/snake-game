@@ -80,7 +80,7 @@ class SnakeGame(App):
     def __init__(self):
         super().__init__()
         SnakeHead((self.width/2, self.height/2))
-        Apple((random.randint(0,self.width), random.randint(0,self.height)))
+        Apple((random.randint(10,self.width-10), random.randint(10,self.height-10)))
         
     def step(self):
         for head in self.getSpritesbyClass(SnakeHead):
@@ -88,7 +88,7 @@ class SnakeGame(App):
             if head.collidingWithSprites(Apple):
                 head.eatApple()
                 self.getSpritesbyClass(Apple)[0].destroy()
-                Apple((random.randint(0,self.width), random.randint(0,self.height)))
+                Apple((random.randint(10,self.width-10), random.randint(10,self.height-10)))
             SnakeTail((head.x, head.y), head.length * 10)
 
             
