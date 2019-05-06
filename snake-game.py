@@ -7,7 +7,7 @@ Assignment:
 Create an old-school snake game
 """
 
-from ggame import App, RectangleAsset, CircleAsset, ImageAsset, Sprite, LineStyle, Color, Frame
+from ggame import App, RectangleAsset, CircleAsset, Sprite, LineStyle, Color
 import math
 import random
 
