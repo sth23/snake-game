@@ -33,10 +33,10 @@ class Snake(Sprite):
         self.vy = -self.speed
         self.vx = 0
         
-        SpaceGame.listenKeyEvent("keydown", "up arrow", self.moveUp)
-        SpaceGame.listenKeyEvent("keydown", "down arrow", self.moveDown)
-        SpaceGame.listenKeyEvent("keydown", "right arrow", self.moveRight)
-        SpaceGame.listenKeyEvent("keydown", "left arrow", self.moveLeft)
+        SnakeGame.listenKeyEvent("keydown", "up arrow", self.moveUp)
+        SnakeGame.listenKeyEvent("keydown", "down arrow", self.moveDown)
+        SnakeGame.listenKeyEvent("keydown", "right arrow", self.moveRight)
+        SnakeGame.listenKeyEvent("keydown", "left arrow", self.moveLeft)
         
     def moveUp(self, event):
         self.vy = -self.speed
