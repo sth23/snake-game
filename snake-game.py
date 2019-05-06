@@ -40,8 +40,8 @@ class Wall(Sprite):
     noline = LineStyle(0,black)
     rect = RectangleAsset(10, 10, noline, black)
     
-    def __init__(self, position):
-        super().__init__(Wall.rect, position)
+    def __init__(self, position, asset):
+        super().__init__(asset, position)
     
 class SnakeHead(Sprite):
     # Create asset
@@ -50,7 +50,7 @@ class SnakeHead(Sprite):
     rect = RectangleAsset(10, 10, noline, black)
     
     def __init__(self, position):
-        super().__init__(SnakeHead.rect, position)
+        super().__init__(SnakeHead.asset, position)
         self.speed = 1
         self.vy = -self.speed
         self.vx = 0
@@ -90,6 +90,16 @@ class SnakeGame(App):
         super().__init__()
         SnakeHead((self.width/2, self.height/2))
         Apple((random.randint(10,self.width-10), random.randint(10,self.height-10)))
+        
+        #Create walls
+        black = Color(0,1)
+        noline = LineStyle(0,black)
+        topbottomrect = RectangleAsset(self.width, 10, noline, black)
+        siderect = RectangleAsset(10, self.height, noline, black)
+        
+        topwall = Wall((0,0), topbottomrect)
+        
+        
         self.tailcollision = []
         
     def step(self):
