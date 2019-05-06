@@ -30,7 +30,7 @@ class Snake(Sprite):
     def __init__(self, position):
         super().__init__(rect, position)
 
-class SnakeGame(app):
+class SnakeGame(App):
     
     def __init__(self):
         super().__init__()
