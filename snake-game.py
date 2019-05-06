@@ -89,7 +89,7 @@ class SnakeGame(App):
     def __init__(self):
         super().__init__()
         SnakeHead((self.width/2, self.height/2))
-        Apple((random.randint(10,self.width-10), random.randint(10,self.height-10)))
+        Apple((random.randint(20,self.width-20), random.randint(20,self.height-20)))
         
         #Create walls
         black = Color(0,1)
@@ -111,7 +111,7 @@ class SnakeGame(App):
             if head.collidingWithSprites(Apple):
                 head.eatApple()
                 self.getSpritesbyClass(Apple)[0].destroy()
-                Apple((random.randint(10,self.width-10), random.randint(10,self.height-10)))
+                Apple((random.randint(20,self.width-20), random.randint(20,self.height-20)))
                 
             # Create snake tail with appropriate age
             SnakeTail((head.x, head.y), head.length * 10)
