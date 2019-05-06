@@ -17,7 +17,7 @@ class Apple(Sprite):
     noline = LineStyle(0,black)
     rect = RectangleAsset(10, 10, noline, black)
     
-    def __init__(self.position):
+    def __init__(self, position):
         super.__init__(Apple.rect, position)
 
 class SnakeTail(Sprite):
