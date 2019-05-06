@@ -33,6 +33,15 @@ class SnakeTail(Sprite):
         
     def step(self):
         self.age +=1
+        
+class Wall(Sprite):
+    # Create asset
+    black = Color(0,1)
+    noline = LineStyle(0,black)
+    rect = RectangleAsset(10, 10, noline, black)
+    
+    def __init__(self, position):
+        super().__init__(Wall.rect, position)
     
 class SnakeHead(Sprite):
     # Create asset
