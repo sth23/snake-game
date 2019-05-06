@@ -16,8 +16,8 @@ class Wall(Sprite):
     black = Color(0,1)
     noline = LineStyle(0,black)
     # Rectangle Assets
-    topwalls = RectangleAsset(self.width, 10, noline, black)
-    sidewalls = RectangleAsset(10, self.height, noline, black)
+    #topwalls = RectangleAsset(self.width, 10, noline, black)
+    #sidewalls = RectangleAsset(10, self.height, noline, black)
     
 #class Apple(Sprite):
     
