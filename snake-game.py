@@ -16,7 +16,7 @@ class Apple(Sprite):
     black = Color(0,1)
     noline = LineStyle(0,black)
     #rect = RectangleAsset(10, 10, noline, black)
-    circ = CircleAsset(10, noline, black)
+    circ = CircleAsset(7.5, noline, black)
     
     def __init__(self, position):
         super().__init__(Apple.circ, position)
