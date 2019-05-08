@@ -7,7 +7,7 @@ Assignment:
 Create an old-school snake game
 """
 
-from ggame import App, RectangleAsset, Sprite, LineStyle, Color
+from ggame import App, RectangleAsset, CircleAsset, Sprite, LineStyle, Color
 import math
 import random
 
@@ -15,10 +15,11 @@ class Apple(Sprite):
     # Create asset
     black = Color(0,1)
     noline = LineStyle(0,black)
-    rect = RectangleAsset(10, 10, noline, black)
+    #rect = RectangleAsset(10, 10, noline, black)
+    circ = CircleAsset(10, noline, black)
     
     def __init__(self, position):
-        super().__init__(Apple.rect, position)
+        super().__init__(Apple.circ, position)
 
 class SnakeTail(Sprite):
     # Create asset
