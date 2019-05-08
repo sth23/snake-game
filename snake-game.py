@@ -15,11 +15,11 @@ class Apple(Sprite):
     # Create asset
     black = Color(0,1)
     noline = LineStyle(0,black)
-    #rect = RectangleAsset(10, 10, noline, black)
-    circ = CircleAsset(7.5, noline, black)
+    rect = RectangleAsset(15, 15, noline, black)
+    #circ = CircleAsset(7.5, noline, black)
     
     def __init__(self, position):
-        super().__init__(Apple.circ, position)
+        super().__init__(Apple.rect, position)
 
 class SnakeTail(Sprite):
     # Create asset
